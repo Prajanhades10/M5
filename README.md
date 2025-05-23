@@ -1,5 +1,5 @@
-EX-21-POINTERS
-# AIM:
+# EX-21-POINTERS
+## AIM:
 Write a C program to convert a 23.65 into 25 using pointer
 
 ## ALGORITHM:
@@ -10,23 +10,32 @@ Write a C program to convert a 23.65 into 25 using pointer
 
 ## PROGRAM:
 
+```
+#include <stdio.h>
+
+int main() {
+    double number = 23.65;
+    double *ptr = &number;
+    
+    *ptr = 25.0;
+    
+    printf("Modified value: %.2f\n", *ptr);
+    
+    return 0;
+}
+
+```
+
 ## OUTPUT:
  	
-
-
-
-
-
-
-
-
-
+![Screenshot 2025-04-27 102721](https://github.com/user-attachments/assets/e6396749-bd76-438c-9185-5edcbd1f5288)
 
 
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
  
  
+
 
 
 # EX-22-FUNCTIONS AND STORAGE CLASS
@@ -45,13 +54,37 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+
+```
+#include <stdio.h>
+
+unsigned long long calculateProduct(int n) {
+    if (n == 1)
+        return 1;
+    return n * calculateProduct(n - 1);
+}
+
+int main() {
+    int n = 12;
+    unsigned long long product = calculateProduct(n);
+    
+    printf("Product of first 12 natural numbers: %llu\n", product);
+    
+    return 0;
+}
+```
+
 ## OUTPUT:
-         		
+
+![Screenshot 2025-04-27 102845](https://github.com/user-attachments/assets/545769c9-c325-4a30-8b71-e64a965e7d93)
+
+           
 ## RESULT:
 
 Thus the program has been executed successfully.
  
  
+
 
 
 # EX-23-ARRAYS AND ITS OPERATIONS
@@ -69,15 +102,37 @@ Write C Program to find Sum of each row of a Matrix
 
 ## PROGRAM:
 
+```
+#include <stdio.h>
 
+int main() {
+    int matrix[3][3] = {
+        {1, 2, 3},
+        {2, 4, 6},
+        {3, 9, 8}
+    };
+    
+    int rows = 3, cols = 3;
+    
+    for (int i = 0; i < rows; i++) {
+        int sum = 0;
+        for (int j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d: %d\n", i + 1, sum);
+    }
+    
+    return 0;
+}
+```
 
 ## OUTPUT
 
+![Screenshot 2025-04-27 103833](https://github.com/user-attachments/assets/16ac8f8a-be53-4f64-bb86-a7e5b04782a3)
 
- 
- 
 
  ## RESULT
+Thus the program has been executed successfully.
  
 
 
@@ -97,10 +152,37 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 
 ## PROGRAM:
 
+```
+#include <stdio.h>
+#include <string.h>
 
- ## OUTPUT
+int main() {
+    char str[] = "PROGRAM";
+    int num_rows, len = strlen(str);
+    
+    printf("Enter number of rows: ");
+    scanf("%d", &num_rows);
+    
+    int midpoint = (2 * num_rows - 1) / 2;
+    
+    for (int i = 1; i <= num_rows; i++) {
+        int j;
+        for (j = 0; j < num_rows - i; j++) {
+            printf(" ");
+        }
+        for (j = 0; j < (2 * i - 1); j++) {
+            printf("%c", str[j % len]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+```
 
+## OUTPUT
  
+![Screenshot 2025-04-27 104000](https://github.com/user-attachments/assets/8b0b92cf-1ec2-49b1-a6f9-c0dd2628c04d)
 
 ## RESULT
 
@@ -108,7 +190,7 @@ Thus the C program to String process executed successfully
  
 
  
-.
+
 
 
 
@@ -132,13 +214,38 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int i, n;
+    int arr[10];
+    int *parr = arr;
+    
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", parr + i);
+    }
+    
+    printf("The elements in the array are:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", *(parr + i));
+    }
+    printf("\n");
+    
+    return 0;
+}
+```
 
 ## OUTPUT
 
- 
+![Screenshot 2025-04-27 104104](https://github.com/user-attachments/assets/850cac32-0506-4a91-ae82-8faef1b3df4b)
+
 
 ## RESULT
 
 Thus the C program to read and display an array of any 6 integer elements using pointer has been executed
-
 
